@@ -1,0 +1,80 @@
+
+<!-- React is a JavaScript Library -->
+
+<!-- imports the React and ReactDOM libraries -->
+
+<!-- imported Babel to use JSX markup and make it into JavaScript so browser understands it -->
+
+<!-- Everything in React is a component and they are written as JS classes -->
+
+
+<html>
+<head>
+<script src="https://unpkg.com/react@15/dist/react.min.js"> </script><script src="https://unpkg.com/react-dom@15/dist/react-dom.min.js">
+</script>
+<script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
+<!-- We’ve also imported Babel, as React uses something called JSX to write markup. We’ll need to transform this JSX into plain JavaScript, so that the browser can understand it. -->
+</head>
+<body>
+    <div id="root"></div>
+    <!-- id="root" Entry point for app and where everything in -->
+    <!-- within the script tag below is where all of the code is going to go for this to work -->
+    <script type="text/babel">
+    
+    class Hello extends React.Component {
+        constructor(){
+        super();
+        this.state = {
+            message: "my friend (from state)!"
+        };
+        this.updateMessage = this.updateMessage.bind(this);
+    }
+    updateMessage() {
+        this.setState({
+            message: "my friend (from changed state)!"
+        });
+    } 
+    render() {
+        return (
+     <div>
+       <h1>Hello {this.state.message}!</h1>
+       <button onClick={this.updateMessage}>Click me!</button>
+     </div>   
+  )
+}
+    }
+
+ReactDOM.render(
+    <Hello message="my friend" />, 
+    document.getElementById("root")
+);
+ REACT CODE HERE 
+    */
+    
+    </script>
+    
+    <!-- Starts with component called Hello and the one method we are using in render -->
+
+    <!-- In render is where the description of what React will make on the page, will be Hello World -->
+
+    <!-- ReactDOM.render() will render this to the screen and will connect the Hello component to the id="root" -->
+
+    <!-- Props and State are two types of React data - State is private and can be changed within the component.  -->
+    
+    <!-- Props are external and not controlled by the component. Props is passed down from components higher up the hierarchy and those that control the data -->
+
+    <!-- Big thing in React is reusing a component in different cases, like displaying different messages in this case - passing Props to the component will do this -->
+
+    <!-- Prop is called message and has value of "my friend" and it is accessed in the Hello component by referencing this.props.message - written within { } because we want to tell JSX that we want to add a JavaScript expession (called escaping) -->
+
+    <!-- To change the data (the message) we have to use state. If you want the data in app to change, ex. based on user interactions must be stored in a components state -->
+
+    <!-- this.state initializes the state. The state in an object within the constructor and has one key called message - super() in the constructor is used because this is uninitialized before super() has been called -->
+
+    <!-- this.setState() called by passing in as arguement to updateMessage method -->
+
+    <!-- then button is added to render() method to trigger the updateMessage method - hooking eventlistender onto the button and is listening for onClick event and when it happens will call updateMessage method which calls this.setState() that changes the this.state.message value -->
+
+
+</body>
+</html>
